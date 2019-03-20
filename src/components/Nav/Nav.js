@@ -1,0 +1,28 @@
+import React, {Component} from 'react';
+import netflixlogo from '../../img/download.svg';
+
+// const Button = styled.button`
+    
+//     ${props => props.right && css`
+//         float: right;
+//     `}
+//     &:hover {
+//         background-color: #E53935;
+//     }
+// `
+
+
+class Nav extends Component{
+    render(){
+        return(
+            <nav>
+                <a href={"/"} className="logo">
+                    <img src={netflixlogo} alt="Netflix" />
+                </a>
+                <button className="signInButton">Sign In</button>
+            </nav>
+        )
+    }
+}
+
+export default Nav;

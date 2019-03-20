@@ -1,0 +1,41 @@
+nav{
+    height: 90px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Netflix logo */
+    img {
+        width: 167px;
+        height : 45px;
+        vertical-align: middle;
+    }
+}
+.logo {
+    display: inline-block;
+    line-height: 90px;
+    margin: 0 0 0 3%;
+}
+.signInButton{
+    color: white;
+    background-color: #e50914;
+    margin: 18px 3% 0 0;
+    padding: 7px 17px;
+    font-weight: 100;
+    border: transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+    line-height: normal;
+    float: right;
+    cursor: pointer;
+}
+
+.signInButton:hover{
+    background-color: #E53935;
+}
+@media (max-width: 1000px){
+    nav img{
+        width: 102px;
+    }
+    .logo{
+        line-height: 72px;
+    }
+}
