@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import './styles/App.scss'
-import Header from './components/Header/Header'
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import './styles/index.scss';
 
 class App extends Component{
@@ -9,6 +10,7 @@ class App extends Component{
         return(
             <div className="App">
                 <Header />
+                <Footer />
             </div>
         )
     }
