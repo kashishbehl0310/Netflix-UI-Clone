@@ -1,0 +1,113 @@
+.priceWrapper{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+.priceHeader{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.priceHeader h2{
+    width: 65%;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 200;
+    padding: 0 10px;
+    text-align: center;
+    display: inline-flex;
+}
+
+.priceHeader button{
+    font-size: 14px;
+    letter-spacing: 1.9px;
+    font-weight: 100;
+    margin: 0.5em 0.5em 0.5em 1.7em;
+    padding: 18px 20px;
+    color: white;
+    background-color: #e50914;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: Arial, sans-serif;
+    border-radius: 2px;
+    user-select: none;
+    text-align: center;
+    border: 0;
+}
+
+.priceHeader button:hover{
+    background-color: #E53935
+}
+
+.priceTable{
+    width: 100%;
+    color: white;
+    font-weight: 200;
+    fill: white;
+    margin-top: 40px;
+    border-collapse: collapse;
+    thead {
+        border-collapse: collapse;
+        text-transform: uppercase;
+        th {
+            padding: 10px;
+        }
+    }
+    tbody {
+        border-collapse: collapse;
+        color: #999;
+        td {
+            text-align: center;
+            padding: 11px 20px;
+            &:first-child {
+                text-align: left;
+            }
+        }
+        tr {
+            &:nth-child(2n) {
+                background-color: #222;
+            }
+        }
+    }
+}
+
+@media(max-width: 700px){
+    .priceTable{
+        text-align: center;
+        background-color: transparent;
+        font-size: 12px;
+        thead {
+            th {
+                text-align: center;
+                width: 35%;
+            }
+        }
+        tbody {
+            td {
+                text-align: center;
+                padding: 1em 0;
+                &:first-child {
+                    text-align: center;
+                }
+            }
+            tr {
+                &:nth-child(2n) {
+                    background-color: transparent;
+                }
+            }
+        }
+        .bold {
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+}
+
+
+@media(max-width: 1200px){
+    .priceHeader{
+        text-align: center;
+    }
+}
