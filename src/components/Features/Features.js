@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Price from './Price/Price';
+import Watch from './Watch/Watch';
+import Cancel from './Cancel/Cancel';
 
 class Features extends Component{
     constructor(props){
@@ -103,7 +105,7 @@ class Features extends Component{
                         </div>
                     </div>
                     {!this.state.cancelContent}
-                    {!this.state.watchContent}
+                    {!this.state.watchContent && <Watch />}
                     {!this.state.priceContent && <Price />}
                 </div>
             )
@@ -160,7 +162,7 @@ class Features extends Component{
                         </div>
                     </div>
                     {!this.state.cancelContent}
-                    {!this.state.watchContent}
+                    {!this.state.watchContent && <Watch /> }
                     {!this.state.priceContent && <Price />}
                 </div>
             )   
