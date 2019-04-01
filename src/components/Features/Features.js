@@ -104,7 +104,7 @@ class Features extends Component{
                             </a>
                         </div>
                     </div>
-                    {!this.state.cancelContent}
+                    {!this.state.cancelContent && <Cancel />}
                     {!this.state.watchContent && <Watch />}
                     {!this.state.priceContent && <Price />}
                 </div>
@@ -161,7 +161,7 @@ class Features extends Component{
                             </a>
                         </div>
                     </div>
-                    {!this.state.cancelContent}
+                    {!this.state.cancelContent && <Cancel />}
                     {!this.state.watchContent && <Watch /> }
                     {!this.state.priceContent && <Price />}
                 </div>
