@@ -1,19 +1,40 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import './styles/App.scss'
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Features from './components/Features/Features'
+import { BrowserRouter, Route} from "react-router-dom";
+import './styles/App.scss';
+import Home from './components/HomepageComponent/Homepage';
+import Login from './components/Login/index';
 import './styles/index.scss';
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoggedIn: false
+        }
+    }
     render(){
         return(
-            <div className="App">
-                <Header />
-                <Features />
-                <Footer />
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Route 
+                        exact 
+                        path="/" 
+                        component={Home} 
+                    >
+                    </Route>
+                    <Route 
+                        exact 
+                        path="/signin" 
+                        component={() => <Login 
+                            isLoggedIn = {this.state.isLoggedIn}
+                            signInRendered = {true}
+                        />} 
+                    >
+                    </Route>                      
+                </div>
+            </BrowserRouter>
+            
         )
     }
 }

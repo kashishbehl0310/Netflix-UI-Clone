@@ -1,6 +1,6 @@
-import React from "react";
-import bgimg from '../../img/bg.jpg';
-import bgsmall from '../../img/bg-mobile.jpg';
+import React, { Component } from "react";
+import img from '../../../img/bg-larger.jpg'
+import bgsmall from '../../../img/bg-mobile.jpg';
 import styled from 'styled-components';
 import Nav from '../Nav/Nav';
 import Pitch from '../Section/Pitch';
@@ -11,8 +11,16 @@ const Header = styled.header`
                 rgba(0, 0, 0, 0.75), 
                 rgba(0, 0, 0, 0.09)
                 ),
-                url(${bgimg});
+                url(${img});
                 height: 100vh;
+                background-size: cover;
+                display: block;
+                height: 100%;
+                min-height: 100vh;
+                overflow: hidden;
+                position: absolute;
+                width: 100%;
+                z-index: -1
     @media (max-width: 1000px) {
       height: 90vh;
       background: linear-gradient(
@@ -25,13 +33,16 @@ const Header = styled.header`
     }
 `;
 
-const header = () => {
-    return (
+
+class header extends Component{
+  render(){
+    return(
       <Header>
-        <Nav />
-        <Pitch />
+         <Nav/>
+         <Pitch />
       </Header>
     )
+  }
 }
 
 export default header;

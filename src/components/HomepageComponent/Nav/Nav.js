@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import netflixlogo from '../../img/download.svg';
+import { Link } from "react-router-dom"
+import netflixlogo from '../../../img/download.svg';
 
 // const Button = styled.button`
     
@@ -13,13 +14,14 @@ import netflixlogo from '../../img/download.svg';
 
 
 class Nav extends Component{
+    
     render(){
         return(
             <nav>
                 <a href={"/"} className="logo">
                     <img src={netflixlogo} alt="Netflix" />
                 </a>
-                <button className="signInButton">Sign In</button>
+                { (!this.props.signInRendered)? <Link className="signInButton" to="/signin">Sign In</Link> : ''}
             </nav>
         )
     }
