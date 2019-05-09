@@ -1,6 +1,7 @@
 const express = require('express');
 const mognoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const db_uri = require('./config/keys');
 const passport = require('passport');
 const users = require('./routes/users')
@@ -14,7 +15,7 @@ app.use(
 )
 
 app.use(bodyParser.json())
-
+app.use(cors())
 const db = db_uri.mongoURI;
 mognoose.connect(db, {
     useNewUrlParser: true

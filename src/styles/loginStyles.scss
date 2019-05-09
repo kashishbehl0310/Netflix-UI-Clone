@@ -5,10 +5,64 @@
     opacity: 0.9;
     max-width: 450px;
     color: #fff;
-    padding: 50px 68px 30px 68px;
+    padding: 30px 68px 30px 68px;
 }
 
 .login-body div .login-content h1{
-    margin: 0
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 28px 0;
 }
 
+.login-body div .login-content form fieldset{
+    border: none;
+    margin-bottom: 10px;
+    position: relative;
+}
+.login-body div .login-content form fieldset input{
+    width: 90%;
+    border-radius: 5px;
+    padding: 25px 12px 6px 12px !important;
+    height: 50px !important;
+    border: none;
+    background-color: #333;
+    opacity: 1;
+    box-shadow: none;
+}
+.login-body div .login-content form fieldset label{
+    height: 50px;
+    position: absolute;
+    top: 20%;
+    left: 10px;
+    color: #8c8c8c;
+    font-size: 16px;
+    transform: translate3d(0,0,0);  
+    transition: all 0.2s ease-in-out;
+}
+.login-body div .login-content form fieldset input:focus + label{
+    font-weight: 700;
+    margin-top: 7px;
+    font-size: 12px;
+    transform: translate3d(0,-10px, 0)
+}
+.signup-button{
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #e50914;
+    padding: 16px;
+    width: 90%;
+    border: none;
+    color: #fff;
+}
+.signin-now{
+    color: #737373;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+.signin-now a{
+    text-decoration: none;
+    color: #fff;
+}
