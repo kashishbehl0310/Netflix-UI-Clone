@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import createBrowserHistory from "history/createBrowserHistory"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route} from "react-router-dom";
+const history = createBrowserHistory();
 import './styles/App.scss';
 import Home from './components/HomepageComponent/Homepage';
 import Login from './components/Login/index';
@@ -17,7 +19,7 @@ class App extends Component{
     }
     render(){
         return(
-            <BrowserRouter>
+            <BrowserRouter >
                 <div className="App">
                     <Route 
                         exact 
@@ -31,14 +33,17 @@ class App extends Component{
                         component={() => <Login 
                             isLoggedIn = {this.state.isLoggedIn}
                             signInRendered = {true}
+                            history={history}
                         />} 
                     >
                     </Route>
                     <Route
                         exact
                         path="/signup"
+                        history={history}
                         component={() => <Signup 
                             signInRendered = {true}
+                            history={history}
                         />}
                     >
                     </Route>                      

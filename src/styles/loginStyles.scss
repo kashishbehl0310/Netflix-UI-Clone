@@ -25,6 +25,7 @@
     border-radius: 5px;
     padding: 25px 12px 6px 12px !important;
     height: 50px !important;
+    color: #fff;
     border: none;
     background-color: #333;
     opacity: 1;
@@ -37,8 +38,19 @@
     left: 10px;
     color: #8c8c8c;
     font-size: 16px;
-    transform: translate3d(0,0,0);  
-    transition: all 0.2s ease-in-out;
+    transition: all 200ms;  
+}
+.login-body div .login-content form fieldset button {
+    position: absolute;
+    color:#8c8c8c;
+    font-size: 14px;
+    border: 0;
+    background: 0 0;
+    flex-grow: 0;
+    flex-shrink: 0; 
+    height: 50px;
+    padding: 0 12px;
+    cursor: pointer;
 }
 .login-body div .login-content form fieldset input:focus + label{
     font-weight: 700;

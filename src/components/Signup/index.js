@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import { Redirect } from "react-router-dom"
 import axios from 'axios';
 import bgsmall from '../../img/bg-mobile.jpg';
 import Nav from '../HomepageComponent/Nav/Nav';
@@ -40,11 +41,13 @@ class Signup extends Component{
             errors: {},
             validEmail: false,
             validPassword: false,
-            passwordMatch: false
+            passwordMatch: false,
+            redirect: false
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this)
+        this.handlePasswordChange = this.handlePasswordChange.bind(this)
     }
     onChange(e){
         const state = this.state;
@@ -57,7 +60,9 @@ class Signup extends Component{
         const { name, email, password, password2 } = this.state;
         if(!this.state.validEmail){
             if(emailCheckRegex.test(email)){
-                this.setState({validEmail: true})
+                this.setState({
+                    validEmail: true
+                })
                 console.log("valid")
             } else {
                 if(!emailCheckRegex.test(email)){
@@ -67,9 +72,21 @@ class Signup extends Component{
         }
         axios.post('http://localhost:3000/api/users/register', {name, email, password, password2})
             .then((result) => {
-                console.log("Results")
-                console.log(result)
+                this.setState({
+                    redirect: true
+                })
             })
+            .catch((error) => {
+                console.log(error.response.data.message)
+            })
+    }
+    validateEmail(email){
+        const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;        
+        if(!this.state.validEmail){
+            if(emailCheckRegex.test(email)){
+                        
+            }
+        }
     }
     handleChange(e){
         const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;        
@@ -115,7 +132,10 @@ class Signup extends Component{
     //     }
     // }
     render(){
-        const {errors, validEmail} = this.state;
+        const {errors, validEmail, redirect} = this.state;
+        if(redirect){
+            return <Redirect to="/signin" />
+        }
         return(
             <Header>
                 <Nav signInRendered={this.props.signInRendered}></Nav>
@@ -139,7 +159,7 @@ class Signup extends Component{
                                     <label for="password" >Password</label>                                
                                 </fieldset>
                                 <fieldset>
-                                    <input name="password2" type="password" value={this.state.password2} onChange={this.handleConfirmPassword} />
+                                    <input name="password2" type="password" value={this.state.password2} onChange={this.onChange} />
                                     <label for="password2" >Confirm Password</label>                                
                                 </fieldset>
                                 <button type="submit" className="signup-button" >Register</button>
