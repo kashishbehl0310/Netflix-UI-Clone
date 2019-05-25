@@ -8,6 +8,7 @@ import './styles/App.scss';
 import Home from './components/HomepageComponent/Homepage';
 import Login from './components/Login/index';
 import Signup from './components/Signup/index';
+import MoviesPage from "./components/MoviesPage/index";
 import './styles/index.scss';
 
 class App extends Component{
@@ -46,6 +47,11 @@ class App extends Component{
                             history={history}
                         />}
                     >
+                    <Route 
+                        exact
+                        path="/home"
+                        component={MoviesPage}
+                    />
                     </Route>                      
                 </div>
             </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import netflixlogo from '../../../img/download.svg';
 
 // const Button = styled.button`
