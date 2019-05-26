@@ -31,6 +31,29 @@ nav{
 .signInButton:hover{
     background-color: #E53935;
 }
+.search-bar{
+    display: inline-block;
+    float: right;
+    padding: 22px;
+}
+.search-input{
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    width: 212px;
+    padding: 7px 14px 7px 7px;
+    outline: none;
+}
+.search-values{
+    padding: 10px;
+}
+.search-values ul{
+    list-style-type: none;
+}
+.search-values ul li{
+    color: #fff;
+}
 @media (max-width: 1000px){
     nav img{
         width: 102px;

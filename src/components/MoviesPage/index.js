@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import Header from "./Header/index"
+import { Redirect, Link } from "react-router-dom";
+import Search from './Search';
+import SearchResults from './SearchResults';
+import netflixlogo from '../../img/download.svg';
 
 class MoviesPage extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            val: "",
+            searchMovies: [],
+            showResponse: false
         }
+        this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount(){
         var token = localStorage.getItem('jwtToken');
@@ -17,11 +23,44 @@ class MoviesPage extends Component{
             })
         }
     }
+    handleChange(e){
+        this.setState({ val: e});
+        if (e !== "")
+        fetch(`
+            https://api.themoviedb.org/3/search/movie?api_key=dd05e29e29370cfb76592b26e8b573d4&language=en-US&query=${e}&page=1&include_adult=false`)
+        .then(r => r.json())
+        .then(data => {
+            this.setState({
+                searchMovies: data.results, 
+                showResponse: true
+            })
+        })
+        .catch(err => console.log(err));
+        else if (e === "") this.setState({ showResponse: false });
+         }
     render(){
+        const { val, searchMovies, showResponse } = this.state;
         return(
             <div>
-                <Header />
-                <h1 style={{color: "#fff"}}>Movies Page - {this.state.isLoggedIn ? "true": "false"}</h1>
+                <nav>
+                    <a href={"/"} className="logo" >
+                        <img src={netflixlogo} />
+                    </a>
+                    <div className="search-bar">
+                        <Search 
+                            value={val}
+                            searchMovies={searchMovies}
+                            showResponse = {showResponse}
+                            handleChange={this.handleChange}
+                        />
+                    </div>
+                </nav>
+                {
+                    showResponse &&
+                        <SearchResults 
+                            searchResults = {searchMovies}
+                        />
+                }
             </div>
         )
     }
