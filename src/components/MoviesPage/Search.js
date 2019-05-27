@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class Search extends Component{
     constructor(props){
@@ -19,9 +20,22 @@ export default class Search extends Component{
         const movies = searchMovies.length
         ? searchMovies.map(movie => {
             return(
-                <li key={movie.id}>
-                    {movie.title}
-                </li>
+                <div className="search-item">
+                    <Link>
+                        <div className="thumbnail-container">
+                            <div className="card card-img-container" >
+                                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+                            </div>
+                        </div>
+                        <div className="search-wrap">
+                            <div className="meta-wrapper">
+                                <div className="title">
+                                    <span className="content-title">{movie.title}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
             )
         }) : null;
         return(
@@ -31,12 +45,12 @@ export default class Search extends Component{
                     placeholder="Title, people, genres"
                     onChange={(e) => handleChange(e.target.value)}
                 />
-                {/* {
+                {
                     showResponse &&
                         <div className="search-values">
-                            <ul>{movies}</ul>
+                            {movies}
                         </div>
-                } */}
+                }
             </React.Fragment>
         )
     }
