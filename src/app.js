@@ -9,6 +9,7 @@ import Home from './components/HomepageComponent/Homepage';
 import Login from './components/Login/index';
 import Signup from './components/Signup/index';
 import MoviesPage from "./components/MoviesPage/index";
+import MovieSlider from './components/MoviesPage/MovieSlider/index';
 import './styles/index.scss';
 
 class App extends Component{
@@ -52,7 +53,13 @@ class App extends Component{
                         path="/home"
                         component={MoviesPage}
                     />
-                    </Route>                      
+                    </Route> 
+                    <Route
+                        exact
+                        path="/slider"
+                        component={MovieSlider}
+                    >
+                    </Route>                     
                 </div>
             </BrowserRouter>
             

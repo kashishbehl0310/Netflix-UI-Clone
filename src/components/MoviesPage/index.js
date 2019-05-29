@@ -4,7 +4,6 @@ import Search from './Search';
 import SearchResults from './SearchResults';
 import netflixlogo from '../../img/download.svg';
 
-
 class MoviesPage extends Component{
     constructor(props){
         super(props);
@@ -48,11 +47,6 @@ class MoviesPage extends Component{
     }
     render(){
         const { val, searchMovies, showResponse, isLoggedIn } = this.state;
-        if(isLoggedIn){
-
-        } else  {
-            
-        }
         return(
             <div>
                 <nav>
@@ -68,12 +62,13 @@ class MoviesPage extends Component{
                         />
                     </div>
                 </nav>
-                {
+                {/* {
                     showResponse &&
                         <SearchResults 
                             searchResults = {searchMovies}
                         />
-                }
+                } */}
+
                 {
                     localStorage.getItem('jwtToken') &&
                         <button onClick={this.handleLogout} >Sign Out</button>
