@@ -9,4 +9,4 @@ const IconArrowDown = () => (
   </svg>
 );
 
-export default IconArrowDown
+export default IconArrowDown;

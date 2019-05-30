@@ -9,7 +9,7 @@ import Home from './components/HomepageComponent/Homepage';
 import Login from './components/Login/index';
 import Signup from './components/Signup/index';
 import MoviesPage from "./components/MoviesPage/index";
-import MovieSlider from './components/MoviesPage/MovieSlider/index';
+import MovieSlider from './components/MovieSlider';
 import './styles/index.scss';
 
 class App extends Component{
