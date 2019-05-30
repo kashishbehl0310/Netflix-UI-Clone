@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import Search from './Search';
 import SearchResults from './SearchResults';
+import MovieParent from './movieParent';
 import netflixlogo from '../../img/download.svg';
 
 class MoviesPage extends Component{
     constructor(props){
         super(props);
+        this.movies = {
+            upcoming: {
+                apiCall: "upcoming",
+                header: "Upcoming"
+            }
+        }
         this.state = {
             isLoggedIn: false,
             val: "",
@@ -47,6 +54,12 @@ class MoviesPage extends Component{
     }
     render(){
         const { val, searchMovies, showResponse, isLoggedIn } = this.state;
+        const movies = {
+            upcoming: {
+                apiCall: "upcoming",
+                header: "Upcoming"
+            }
+        }
         return(
             <div>
                 <nav>
@@ -68,10 +81,14 @@ class MoviesPage extends Component{
                             searchResults = {searchMovies}
                         />
                 } */}
+               
 
                 {
                     localStorage.getItem('jwtToken') &&
-                        <button onClick={this.handleLogout} >Sign Out</button>
+                        <button onClick={this.handleLogout} >{movies.upcoming.apiCall}</button>
+                }
+                 {
+                    <MovieParent />
                 }
             </div>
         )

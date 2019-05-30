@@ -17,7 +17,7 @@ const Item = ({ movie }) => (
             'item--open': isActive,
           })}
         >
-          <img src={`https://image.tmdb.org/t/p/w500${movie.image}`} alt="" />
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
           <ShowDetailsButton onClick={() => onSelectSlide(movie)} />
           {isActive && <Mark />}
         </div>
