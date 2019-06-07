@@ -16,6 +16,7 @@ class MovieSlider extends Component {
     return (
       
       <div className="app">
+      <h1 style={{color: "#fff"}} >{this.props.header}</h1>
       {
         this.state && this.state.movies &&
           // console.log(this.state.movies)
@@ -25,11 +26,6 @@ class MovieSlider extends Component {
             ))}
           </Slider>
       }
-        {/* <Slider> */}
-          {/* {moviesList.map(movie => (
-            <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
-          ))} */}
-        {/* </Slider> */}
       </div>
     );
   }

@@ -33,6 +33,10 @@ class MoviesPage extends Component{
             this.props.history.push('/signin')
         }
     }
+    componentWillUnmount(){
+        localStorage.removeItem('jwtToken');
+        window.location.reload();
+    }
     handleLogout(){
         localStorage.removeItem('jwtToken');
         window.location.reload();
@@ -56,10 +60,46 @@ class MoviesPage extends Component{
         const { val, searchMovies, showResponse, isLoggedIn } = this.state;
         const movies = {
             upcoming: {
-                apiCall: "upcoming",
-                header: "Upcoming"
+              apiCall: "upcoming",
+              header: "Upcoming"
+            },
+            topRated: {
+              apiCall: "top_rated",
+              header: "Popular on Netflix"
+            },
+            action: {
+              apiCall: 28,
+              header: "Action"
+            },
+            adventure: {
+              apiCall: 12,
+              header: "Adventure"
+            },
+            animation: {
+              apiCall: 16,
+              header: "Animation"
+            },
+            comedy: {
+              apiCall: 35,
+              header: "Comedy"
+            },
+            crime: {
+              apiCall: 80,
+              header: "Crime"
+            },
+            drama: {
+              apiCall: 18,
+              header: "Drama"
+            },
+            documentary: {
+              apiCall: 99,
+              header: "Documentary"
+            },
+            romance: {
+              apiCall: 10749,
+              header: "Romance"
             }
-        }
+          };
         return(
             <div>
                 <nav>
@@ -73,6 +113,10 @@ class MoviesPage extends Component{
                             showResponse = {showResponse}
                             handleChange={this.handleChange}
                         />
+                         {/* {
+                        localStorage.getItem('jwtToken') &&
+                        <button className="signInButton" onClick={this.handleLogout} >Sign Out</button>
+                        } */}
                     </div>
                 </nav>
                 {/* {
@@ -83,12 +127,14 @@ class MoviesPage extends Component{
                 } */}
                
 
+                
                 {
-                    localStorage.getItem('jwtToken') &&
-                        <button onClick={this.handleLogout} >{movies.upcoming.apiCall}</button>
-                }
-                 {
-                    <MovieParent />
+                    Object.keys(movies).map((item, i) => (
+                        <div key={i}>
+                            {/* <h1 style={{color:"#fff"}}>{movies[item].header}</h1> */}
+                            <MovieParent header={movies[item].header} apiCall={movies[item].apiCall} />
+                        </div>
+                    ))
                 }
             </div>
         )
