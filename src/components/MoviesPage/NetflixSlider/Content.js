@@ -2,7 +2,11 @@ import React from 'react';
 import IconCross from '../Icons/IconCross';
 import './Content.scss';
 
-const Content = ({ movie, onClose }) => (
+const Content = ({ movie, onClose }) => {
+  function getMovie(movie){
+    console.log(movie)
+  }
+  return (
   <div className="content">
     <div className="content__background">
       <div className="content__background__shadow" />
@@ -17,6 +21,7 @@ const Content = ({ movie, onClose }) => (
         <div className="content__description">
           {movie.overview}
         </div>
+        <button className="addListButton" onClick={getMovie(movie)} >Add to my list</button>
       </div>
       <button className="content__close" onClick={onClose}>
         <IconCross />
@@ -24,5 +29,5 @@ const Content = ({ movie, onClose }) => (
     </div>
   </div>
 );
-
+}
 export default Content;

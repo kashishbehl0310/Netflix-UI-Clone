@@ -1,12 +1,26 @@
 nav{
     height: 90px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* Netflix logo */
-    img {
-        width: 167px;
-        height : 45px;
+    .img{
+        width: 114px;
+        height: 56px;
         vertical-align: middle;
     }
+}
+.Nlogo {
+    width: 114px;
+    height : 45px;
+    vertical-align: middle;
+}
+.pull-left img{
+    width: 30px;
+    margin-top: 20px;
+}
+.navbar{
+    height: 56px;
+}
+.navLinks {
+    color: #fff !important;
 }
 .logo {
     display: inline-block;

@@ -1,0 +1,57 @@
+.bgImage{
+    height: 750px;
+    width: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: white;
+    z-index: 0;
+}
+.popularInfo{
+    position: absolute;
+    top: 20%;
+    left: 6%;
+    width: 40%;
+}
+
+.popularInfo h1{
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.popularInfo button{
+    background: #cc0000;
+    color: #fff;
+    height: 50px;
+    width: 200px;
+    margin-top: 20px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid red;
+    cursor: pointer;
+    font-weight: lighter;
+}
+.popularInfo button:hover{
+    background: #cc0000;
+}
+.switchImage{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.switchImage div{
+    width: 16px;
+    height: 14px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+}
+.switchImage div.active{
+    background: #404040;
+}

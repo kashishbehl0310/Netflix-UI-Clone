@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import Search from './Search';
 import SearchResults from './SearchResults';
 import MovieParent from './movieParent';
+import Trending from './Trending';
 import netflixlogo from '../../img/download.svg';
 
 class MoviesPage extends Component{
@@ -18,7 +19,8 @@ class MoviesPage extends Component{
             isLoggedIn: false,
             val: "",
             searchMovies: [],
-            showResponse: false
+            showResponse: false,
+            randomVal: "ssjkaljal"
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
@@ -57,7 +59,7 @@ class MoviesPage extends Component{
         else if (e === "") this.setState({ showResponse: false });
     }
     render(){
-        const { val, searchMovies, showResponse, isLoggedIn } = this.state;
+        const { val, searchMovies, showResponse, isLoggedIn, randomVal } = this.state;
         const movies = {
             upcoming: {
               apiCall: "upcoming",
@@ -102,23 +104,6 @@ class MoviesPage extends Component{
           };
         return(
             <div>
-                <nav>
-                    <a href={"/"} className="logo" >
-                        <img src={netflixlogo} />
-                    </a>
-                    <div className="search-bar">
-                        <Search 
-                            value={val}
-                            searchMovies={searchMovies}
-                            showResponse = {showResponse}
-                            handleChange={this.handleChange}
-                        />
-                         {/* {
-                        localStorage.getItem('jwtToken') &&
-                        <button className="signInButton" onClick={this.handleLogout} >Sign Out</button>
-                        } */}
-                    </div>
-                </nav>
                 {/* {
                     showResponse &&
                         <SearchResults 
@@ -126,7 +111,14 @@ class MoviesPage extends Component{
                         />
                 } */}
                
-
+                {
+                    <Trending 
+                        value={val}
+                        searchMovies={searchMovies}
+                        showResponse={showResponse}
+                        handleChange={this.handleChange}
+                    />
+                }
                 
                 {
                     Object.keys(movies).map((item, i) => (

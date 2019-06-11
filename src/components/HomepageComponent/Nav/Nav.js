@@ -19,7 +19,7 @@ class Nav extends Component{
         return(
             <nav>
                 <a href={"/"} className="logo">
-                    <img src={netflixlogo} alt="Netflix" />
+                    <img className="img" src={netflixlogo} alt="Netflix" />
                 </a>
                 { (!this.props.signInRendered)? <Link className="signInButton" to="/signin">Sign In</Link> : ''}
             </nav>

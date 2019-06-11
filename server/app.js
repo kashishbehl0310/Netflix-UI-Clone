@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db_uri = require('./config/keys');
 const passport = require('passport');
-const users = require('./routes/users')
+const users = require('./routes/users');
+const movies = require('./routes/movies');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(passport.initialize())
 
 require('./config/passport')(passport)
 app.use('/api/users', users)
+app.use('/api/movies', movies)
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server up and running on port ${port}`) )

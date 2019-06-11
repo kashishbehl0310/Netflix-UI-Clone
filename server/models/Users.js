@@ -17,6 +17,10 @@ const userSchema = new schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    movie: {
+        type: Array,
+        required: false
     }
 })
 
