@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Animate from "react-smooth";
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import HeaderNav from './Navbar';
 
@@ -48,7 +49,19 @@ class Trending extends Component{
         this.mounted = false;
         clearTimeout(this.timeOut)
     }
-
+    addMovietoList(movie, user){
+        console.log(movie)
+        console.log(user.id)
+        axios.put(`http://localhost:3000/api/movies/addToUserList/${user.id}`, {movie})
+            .then((result) => {
+                if(result.data){
+                    console.log("Updated")
+                }
+            })
+            .catch((error) => {
+                console.log("An error occured")
+            })
+    }
     render(){
         const { movies, i } = this.state;
         const {
@@ -96,7 +109,7 @@ class Trending extends Component{
                                 </p>
                                 <p className="header-overview" >{movies[i].overview}</p>
                                 {/* <Link to={"/"}> */}
-                                    <button>Add to My List</button>
+                                    <button onClick={() => this.addMovietoList(movies[i], this.props.user)} >Add to My List</button>
                                 {/* </Link> */}
                             </div>
                             <div className="switchImage" >{divs}</div>
@@ -110,6 +123,7 @@ class Trending extends Component{
             <header>
                 <HeaderNav 
                     value={value}
+                    user={this.props.user}
                     searchMovies={searchMovies}
                     showResponse={showResponse}
                     handleChange={handleChange}

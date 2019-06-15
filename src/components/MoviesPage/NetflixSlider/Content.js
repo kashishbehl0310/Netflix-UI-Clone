@@ -21,7 +21,7 @@ const Content = ({ movie, onClose }) => {
         <div className="content__description">
           {movie.overview}
         </div>
-        <button className="addListButton" onClick={getMovie(movie)} >Add to my list</button>
+        <button className="addListButton" onClick={() => getMovie(movie)} >Add to my list</button>
       </div>
       <button className="content__close" onClick={onClose}>
         <IconCross />

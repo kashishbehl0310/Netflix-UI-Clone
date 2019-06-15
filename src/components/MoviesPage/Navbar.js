@@ -6,26 +6,11 @@ import Search from './Search';
 import Avatar from '../../img/Avatar-Transparent-Image.png'
 
 class HeaderNav extends Component{
-    // parseJWT(token){
-    //     if(!token){
-    //         return;
-    //     }
-    //     const base64url = 
-    // }
     constructor(props){
         super(props);
         this.state={
             user: {}
         }
-    }
-    getCurrentUser(){
-        const cuurent_user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
-        return cuurent_user;
-    }
-    componentDidMount(){
-        this.setState({
-            user: this.getCurrentUser()
-        })
     }
     render(){
         const {
@@ -48,7 +33,7 @@ class HeaderNav extends Component{
                     </Nav>
                     <Nav>
                         <NavDropdown
-                            title={this.state.user.name}
+                            title={this.props.user.name}
                             id="collasible-nav-dropdown"
                         >
                             <NavDropdown.Item>Sign Out</NavDropdown.Item>

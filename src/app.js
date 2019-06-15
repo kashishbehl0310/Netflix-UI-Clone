@@ -36,14 +36,12 @@ class App extends Component{
                         component={() => <Login 
                             isLoggedIn = {this.state.isLoggedIn}
                             signInRendered = {true}
-                            history={history}
                         />} 
                     >
                     </Route>
                     <Route
                         exact
                         path="/signup"
-                        history={history}
                         component={() => <Signup 
                             signInRendered = {true}
                             history={history}
@@ -55,12 +53,12 @@ class App extends Component{
                         component={MoviesPage}
                     />
                     </Route> 
-                    <Route
+                    {/* <Route
                         exact
                         path="/slider"
                         component={MovieParent}
                     >
-                    </Route>                     
+                    </Route>                     */}
                 </div>
             </BrowserRouter>
             

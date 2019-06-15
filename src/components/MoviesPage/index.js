@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import jwt_decode from 'jwt-decode';
 import { Redirect, Link } from "react-router-dom";
 import Search from './Search';
 import SearchResults from './SearchResults';
@@ -20,17 +21,26 @@ class MoviesPage extends Component{
             val: "",
             searchMovies: [],
             showResponse: false,
-            randomVal: "ssjkaljal"
+            randomVal: "ssjkaljal",
+            user: {}
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
+    getCurrentUser(){
+        const current_user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
+        console.log(current_user);
+    }
     componentDidMount(){
         var token = localStorage.getItem('jwtToken');
+        const user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
+        console.log(user)
         if(token){
             this.setState({
-                isLoggedIn: true
+                isLoggedIn: true,
+                user: user
             })
+            
         } else {
             this.props.history.push('/signin')
         }
@@ -117,6 +127,7 @@ class MoviesPage extends Component{
                         searchMovies={searchMovies}
                         showResponse={showResponse}
                         handleChange={this.handleChange}
+                        user={this.state.user}
                     />
                 }
                 

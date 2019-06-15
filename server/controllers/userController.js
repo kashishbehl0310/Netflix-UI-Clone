@@ -27,6 +27,7 @@ function checkMoviePresence(userMoviesList, reqMovies){
     }
 }
 exports.addToUserList = function(req, res){
+    // console.log(req.body)
     var movieDetails = req.body.movie;
     var result = ""
     User.findById(req.params.id, function(err, user){
