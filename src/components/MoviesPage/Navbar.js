@@ -29,7 +29,7 @@ class HeaderNav extends Component{
                         <Nav.Link style={{color: "#fff"}} >Home</Nav.Link>
                         <Nav.Link style={{color: "#fff"}} >Movies</Nav.Link>
                         <Nav.Link style={{color: "#fff"}} >Series</Nav.Link>
-                        <Nav.Link style={{color: "#fff"}} >My List</Nav.Link>
+                        <Nav.Link style={{color: "#fff"}} href="/mylist" >My List</Nav.Link>
                     </Nav>
                     <Nav>
                         <NavDropdown

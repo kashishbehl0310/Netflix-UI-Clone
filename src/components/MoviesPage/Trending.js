@@ -7,12 +7,14 @@ import HeaderNav from './Navbar';
 class Trending extends Component{
     constructor(props){
         super(props);
-        this.showCaseMovies = 4;
+        this.showCaseMovies = 5;
         this.timeOutTime = 5000;
         this.mounted = false;
         this.state = {
             movies: [],
-            i: 0
+            userList: [],
+            i: 0,
+            user: {}
         }
     }
     componentDidMount(){
@@ -21,13 +23,17 @@ class Trending extends Component{
             .then(res => res.json())
             .then(data => {
                 if(this.mounted){
+                    this.getUserMovielist()
                     this.setState({
-                        movies: data.results
+                        movies: data.results,
+                        user: this.props.user
                     })
+                    // this.checkinList(this.state.movies)
                 }
             })
             .catch(err => console.log(err))
             this.startTimeOut();
+        // console.log(this.props.user)
     }
 
     startTimeOut(){
@@ -49,12 +55,42 @@ class Trending extends Component{
         this.mounted = false;
         clearTimeout(this.timeOut)
     }
+    getUserMovielist(){
+        console.log("this.props.user " + this.props.user.id)
+        fetch(`http://localhost:3000/api/movies/getUsersMovieList/${this.props.user.id}`)
+            .then(r => r.json())
+            .then((data) => {
+                this.setState({
+                    userList: data
+                })
+                // console.log(data)
+                this.checkinList(this.state.movies, this.state.userList)
+                return data
+            })
+            .catch(err => console.log(err))
+        // console.log(this.state)
+    }
+    // check Trending movie in list
+    checkinList(movies, userList){
+        for(var i=0; i<userList.length; i++){
+            for(var j=i;j<movies.length; j++){
+                if(userList[i].id === movies[j].id){
+                    movies[j].added = "true";
+                }   
+            }
+        }
+        this.setState({
+            movies: movies
+        })
+    }
     addMovietoList(movie, user){
-        console.log(movie)
-        console.log(user.id)
         axios.put(`http://localhost:3000/api/movies/addToUserList/${user.id}`, {movie})
             .then((result) => {
                 if(result.data){
+                    var joined = this.state.userList.concat(result.data)
+                    this.setState({
+                        userList: joined
+                    })
                     console.log("Updated")
                 }
             })
@@ -63,13 +99,15 @@ class Trending extends Component{
             })
     }
     render(){
-        const { movies, i } = this.state;
+        const { movies, i, user, userList } = this.state;
+        console.log(movies);
         const {
             value,
             searchMovies, 
             showResponse,
             handleChange
         } = this.props;
+       
         const divs = movies.length
             ? movies.map((movies, index) => {
                 if(index <= this.showCaseMovies){
@@ -89,7 +127,7 @@ class Trending extends Component{
             }) 
         : null;
         const movieList = movies.length
-            ? (
+            ? ( 
                 <div key={movies[i].id} >
                     <Animate to="1" from="0.2" attributeName="opacity" >
                         <div style={{
@@ -109,7 +147,7 @@ class Trending extends Component{
                                 </p>
                                 <p className="header-overview" >{movies[i].overview}</p>
                                 {/* <Link to={"/"}> */}
-                                    <button onClick={() => this.addMovietoList(movies[i], this.props.user)} >Add to My List</button>
+                                    <button onClick={() => this.addMovietoList(movies[i], this.props.user)} > {(movies[i].added === "true") ? "Added to My list" : "Add to My List" } </button>
                                 {/* </Link> */}
                             </div>
                             <div className="switchImage" >{divs}</div>

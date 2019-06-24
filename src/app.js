@@ -9,6 +9,7 @@ import Home from './components/HomepageComponent/Homepage';
 import Login from './components/Login/index';
 import Signup from './components/Signup/index';
 import MoviesPage from "./components/MoviesPage/index";
+import Mylist from './components/MoviesPage/Mylist'
 import MovieSlider from './components/MoviesPage/MovieSlider';
 import MovieParent from './components/MoviesPage/movieParent';
 import './styles/index.scss';
@@ -53,6 +54,12 @@ class App extends Component{
                         component={MoviesPage}
                     />
                     </Route> 
+                    <Route
+                        exact
+                        path="/mylist"
+                        component={Mylist}
+                    >
+                    </Route>
                     {/* <Route
                         exact
                         path="/slider"

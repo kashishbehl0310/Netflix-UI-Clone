@@ -3,7 +3,7 @@ const User = require('../models/Users');
 exports.returnUserMovieList = ((req, res) => {
     User.findById(req.params.id,function(err, user){
         if(err){
-            return next(err);
+            console.log("An error occured")
         }
         let movieList = user.movie.map(movie => {
             return JSON.parse(movie)
