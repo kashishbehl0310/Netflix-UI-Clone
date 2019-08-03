@@ -45,12 +45,10 @@ class MoviesPage extends Component{
             this.props.history.push('/signin')
         }
     }
-    componentWillUnmount(){
-        localStorage.removeItem('jwtToken');
-        window.location.reload();
-    }
     handleLogout(){
+        console.log("logged out")
         localStorage.removeItem('jwtToken');
+        this.props.history.push('/signin');
         window.location.reload();
     }
     handleChange(e){
@@ -128,6 +126,7 @@ class MoviesPage extends Component{
                         showResponse={showResponse}
                         handleChange={this.handleChange}
                         user={this.state.user}
+                        handleLogout = {this.handleLogout}
                     />
                 }
                 
@@ -135,7 +134,7 @@ class MoviesPage extends Component{
                     Object.keys(movies).map((item, i) => (
                         <div key={i}>
                             {/* <h1 style={{color:"#fff"}}>{movies[item].header}</h1> */}
-                            <MovieParent header={movies[item].header} apiCall={movies[item].apiCall} />
+                            <MovieParent user={this.state.user} header={movies[item].header} apiCall={movies[item].apiCall} />
                         </div>
                     ))
                 }
