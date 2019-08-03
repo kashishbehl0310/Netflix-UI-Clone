@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import { Link } from "react-router-dom";
 
 class Pitch extends Component{
     render(){
@@ -6,7 +7,7 @@ class Pitch extends Component{
             <section className="pitchSection">
                 <h1>See what's next</h1>
                 <p>WATCH ANYWHERE. CANCEL ANYTIME.</p>
-                <button>JOIN FREE FOR A MONTH</button>
+                <Link className="button" to="/signin">JOIN FREE FOR A MONTH</Link>
             </section>
         )
     }

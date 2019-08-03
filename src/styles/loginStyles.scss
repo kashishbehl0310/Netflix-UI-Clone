@@ -1,6 +1,5 @@
 .login-body{
     margin: 0 auto -236px;
-    min-height: 100vh;
     background-color: black;
     opacity: 0.9;
     max-width: 450px;
@@ -78,4 +77,13 @@
 .signin-now a{
     text-decoration: none;
     color: #fff;
+}
+
+@media(max-width: 400px){
+    .login-body{
+        width: 273px;
+        max-width: 280px;
+        padding: 14px 5px 30px 16px;
+        
+    }
 }

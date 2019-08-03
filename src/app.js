@@ -47,12 +47,12 @@ class App extends Component{
                             signInRendered = {true}
                             history={history}
                         />}
-                    >
+                    />
                     <Route 
                         exact
                         path="/home"
                         component={MoviesPage}
-                    />
+                    >
                     </Route> 
                     <Route
                         exact

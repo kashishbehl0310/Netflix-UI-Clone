@@ -40,10 +40,13 @@ nav{
     line-height: normal;
     float: right;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .signInButton:hover{
+    color: #fff;
     background-color: #E53935;
+    text-decoration: none;
 }
 .search-bar{
     display: inline-block;

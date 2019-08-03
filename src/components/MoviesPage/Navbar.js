@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import netflixlogo from '../../img/download.svg';
-import jwt_decode from 'jwt-decode';
 import Search from './Search';
-import Avatar from '../../img/Avatar-Transparent-Image.png'
 
 class HeaderNav extends Component{
     constructor(props){
@@ -31,22 +29,23 @@ class HeaderNav extends Component{
                         <Nav.Link style={{color: "#fff"}} >Series</Nav.Link>
                         <Nav.Link style={{color: "#fff"}} href="/mylist" >My List</Nav.Link>
                     </Nav>
-                    <Nav>
-                        <NavDropdown
-                            title={this.props.user.name}
-                            id="collasible-nav-dropdown"
-                        >
-                            <NavDropdown.Item>Sign Out</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                    {/* <div className="search-Bar">
+                    <div className="search-Bar">
                         <Search 
                             value={value}
                             searchMovies={searchMovies}
                             showResponse={showResponse}
                             handleChange={handleChange}
                         />
-                    </div> */}
+                    </div>
+                    <Nav>
+                        <Nav.Link style={{color: "#fff"}}  onClick={this.props.handleLogout} >Sign Out</Nav.Link>
+                        {/* <NavDropdown
+                            title={this.props.user.name}
+                            id="collasible-nav-dropdown"
+                        >
+                        </NavDropdown> */}
+                    </Nav>
+                    
                 </Navbar>
             </div>
         )

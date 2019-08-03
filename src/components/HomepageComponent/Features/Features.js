@@ -150,7 +150,7 @@ class Features extends Component{
                                         <path d="M62.004 0c-2.95 6.4-12.651 6.4-12.651 6.4-7.05.1-10.951 2.25-12.751 3.601-.7-.351-1.55-.2-2.1.35-.7.7-.65 1.85.05 2.549.7.651 1.85.651 2.5-.049.55-.55.65-1.3.4-1.951 5.05-3.5 11.9-3.299 11.9-3.299C60.105 7.601 62.855.6 62.855.6l-.85-.6z"></path>
                                     </g>
                                 </svg>
-                                <h2 className={priceContent ? 'selected' : ''}>
+                                <h2 className={!priceContent ? 'selected' : ''}>
                                     Pick your price
                                 </h2>
                                 <br />

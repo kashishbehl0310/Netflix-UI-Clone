@@ -21,14 +21,14 @@
 }
 
 .popularInfo button{
-    background: #cc0000;
+    background-color: rgba(51, 51, 51, .4);
     color: #fff;
     height: 50px;
     width: 200px;
     margin-top: 20px;
     font-size: 20px;
     outline: none;
-    border: 1px solid red;
+    border: none;
     cursor: pointer;
     font-weight: lighter;
 }
