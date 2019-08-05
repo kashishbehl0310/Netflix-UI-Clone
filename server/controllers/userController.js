@@ -11,6 +11,16 @@ exports.returnUserMovieList = ((req, res) => {
         res.json(movieList)
     })
 })
+
+exports.testRouteController = ((req, res) => {
+    User.find({}, function(err, result){
+        if(err){
+            console.log("An error occurred")
+        }
+        res.json(result)
+    })
+})
+
 function checkMoviePresence(userMoviesList, reqMovies){
     var flag = 0;
     for(var i=0; i <userMoviesList.length; i++){
