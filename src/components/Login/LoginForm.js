@@ -37,7 +37,7 @@ export class LoginForm extends Component{
     onSubmit(e){
         e.preventDefault();
         const { email, password } = this.state;
-        axios.post('http://localhost:3000/api/users/login', {email, password})
+        axios.post(' https://limitless-spire-75144.herokuapp.com/api/users/login', {email, password})
             .then((result) => {
                 if(result.data.token){
                     localStorage.setItem('jwtToken', result.data.token);

@@ -137,3 +137,18 @@ nav{
         line-height: 72px;
     }
 }
+
+@media(max-width: 400px){
+    .search-Bar{
+        display: none;
+    }
+    .Nlogo{
+        width: 60px;
+    }
+    .navLinks{
+        font-size: 14px;
+    }
+    .signoutTab{
+        font-size: 14px;
+    }
+}

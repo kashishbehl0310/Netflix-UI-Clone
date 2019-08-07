@@ -70,7 +70,7 @@ class Signup extends Component{
                 }
             }           
         }
-        axios.post('http://localhost:3000/api/users/register', {name, email, password, password2})
+        axios.post(' https://limitless-spire-75144.herokuapp.com/api/users/register', {name, email, password, password2})
             .then((result) => {
                 this.setState({
                     redirect: true

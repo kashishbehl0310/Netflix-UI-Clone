@@ -29,12 +29,12 @@ class MoviesPage extends Component{
     }
     getCurrentUser(){
         const current_user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
-        console.log(current_user);
+        // console.log(current_user);
     }
     componentDidMount(){
         var token = localStorage.getItem('jwtToken');
         const user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
-        console.log(user)
+        // console.log(user)
         if(token){
             this.setState({
                 isLoggedIn: true,
@@ -46,7 +46,7 @@ class MoviesPage extends Component{
         }
     }
     handleLogout(){
-        console.log("logged out")
+        // console.log("logged out")
         localStorage.removeItem('jwtToken');
         this.props.history.push('/signin');
         window.location.reload();

@@ -55,3 +55,21 @@
 .switchImage div.active{
     background: #404040;
 }
+
+@media (max-width: 400px){
+    .bgImage{
+        height: 550px;
+    }
+    .popularInfo{
+        top: 4%;
+        width: 80%;
+    }
+    .popularInfo h1{
+        font-size: 24px;
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+    .popularInfo .header-overview{
+        font-size: 14px;
+    }
+}

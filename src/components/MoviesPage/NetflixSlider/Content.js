@@ -4,7 +4,7 @@ import './Content.scss';
 
 const Content = ({ movie, onClose }) => {
   function getMovie(movie){
-    console.log(movie)
+    // console.log(movie)
   }
   return (
   <div className="content">

@@ -15,7 +15,8 @@ class HeaderNav extends Component{
             value,
             searchMovies,
             showResponse,
-            handleChange
+            handleChange,
+            handleLogout
         } = this.props;
         return(
             <div>
@@ -25,11 +26,11 @@ class HeaderNav extends Component{
                     </Navbar.Brand>
                     <Nav className="mr-auto navLinks" >
                         <Nav.Link style={{color: "#fff"}} >Home</Nav.Link>
-                        <Nav.Link style={{color: "#fff"}} >Movies</Nav.Link>
-                        <Nav.Link style={{color: "#fff"}} >Series</Nav.Link>
+                        {/* <Nav.Link style={{color: "#fff"}} >Movies</Nav.Link> */}
+                        {/* <Nav.Link style={{color: "#fff"}} >Series</Nav.Link> */}
                         <Nav.Link style={{color: "#fff"}} href="/mylist" >My List</Nav.Link>
                     </Nav>
-                    <div className="search-Bar">
+                    <div onClick={this.handleClick} ref={node => this.node = node} className="search-Bar">
                         <Search 
                             value={value}
                             searchMovies={searchMovies}
@@ -38,7 +39,7 @@ class HeaderNav extends Component{
                         />
                     </div>
                     <Nav>
-                        <Nav.Link style={{color: "#fff"}}  onClick={this.props.handleLogout} >Sign Out</Nav.Link>
+                        <Nav.Link className="signoutTab" style={{color: "#fff"}}  onClick={this.props.handleLogout} >Sign Out</Nav.Link>
                         {/* <NavDropdown
                             title={this.props.user.name}
                             id="collasible-nav-dropdown"

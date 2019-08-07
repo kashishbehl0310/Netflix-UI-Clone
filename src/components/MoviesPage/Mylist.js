@@ -16,14 +16,14 @@ export default class Mylist extends Component{
     componentDidMount(){
         // console.log(this.props.location.userProps)
         const user = jwt_decode(localStorage.getItem('jwtToken'), {header: false})
-        console.log(user)
+        // console.log(user)
         this.setState({
             user: user
         })
-        fetch(`http://localhost:3000/api/movies/getUsersMovieList/5cd52f55392819319446d6d9`)
+        fetch(` https://limitless-spire-75144.herokuapp.com/api/movies/getUsersMovieList/5cd52f55392819319446d6d9`)
             .then(r => r.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
             })
             .catch(err => console.log("An error occured" + err))
     }

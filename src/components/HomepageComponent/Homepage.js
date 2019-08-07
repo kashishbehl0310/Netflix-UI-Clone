@@ -5,7 +5,6 @@ import Features from './Features/Features';
 
 class Home extends Component{
     render(){
-        console.log(this.props)
         return(
             <div>
                 <Header/>
