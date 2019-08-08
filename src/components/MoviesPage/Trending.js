@@ -160,7 +160,7 @@
                                     </p>
                                     <p className="header-overview" >{movies[i].overview}</p>
                                     {/* <Link to={"/"}> */}
-                                        <button onClick={() => this.addMovietoList(movies[i], this.props.user)} > {movies.added} </button>
+                                        <button onClick={() => this.addMovietoList(movies[i], this.props.user)} > {movies.added ? "Added To list" : "Add to my list"} </button>
                                     {/* </Link> */}
                                 </div>
                                 <div className="switchImage" >{divs}</div>
